@@ -7,8 +7,8 @@ import { FontAwesome5 } from "@expo/vector-icons";
 
 //screens
 import Favorite from "../screens/Favorite";
-import Pokedex from "../screens/Pokedex";
 import Account from "../screens/Account";
+import PokedexNavigation from "./PokedexNavigation";
 
 const Tab = createBottomTabNavigator();
 
@@ -16,9 +16,10 @@ export default function Navigation() {
   return (
     <Tab.Navigator>
       <Tab.Screen
-        name="Podex"
-        component={Pokedex}
+        name="Favoritos"
+        component={Favorite}
         options={{
+          headerTitle: "Favoritos",
           tabBarLabel: "Favoritos",
           tabBarIcon: ({ color, size }) => (
             <FontAwesome5 name="heart" size={size} color={color} />
@@ -26,9 +27,11 @@ export default function Navigation() {
         }}
       />
       <Tab.Screen
-        name="Favorite"
-        component={Favorite}
+        name="PokedexTab"
+        component={PokedexNavigation}
         options={{
+          // headerTitle: "Pokedex",
+          headerShown: false,
           tabBarLabel: "",
           tabBarIcon: () => renderPokeball(),
         }}
@@ -37,6 +40,7 @@ export default function Navigation() {
         name="Account"
         component={Account}
         options={{
+          headerTitle: "Mi cuenta",
           tabBarLabel: "Account",
           tabBarIcon: ({ color, size }) => (
             <FontAwesome5 name="user" size={24} color="black" />
