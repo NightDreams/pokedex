@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
   card: {
     flex: 1,
     height: 130,
+    marginHorizontal: 5,
   },
   spacing: {
     flex: 1,

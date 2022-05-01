@@ -1,4 +1,4 @@
-import { Text, StyleSheet, FlatList } from "react-native";
+import { Text, StyleSheet, FlatList, View } from "react-native";
 import React from "react";
 import PokemonCard from "./PokemonCard";
 
@@ -16,6 +16,7 @@ export default function PokemonList(props) {
       keyExtractor={(pokemon) => String(pokemon.id)}
       renderItem={({ item }) => <PokemonCard pokemon={item} />}
       contentContainerStyle={styles.FlatListContentContainer}
+      ItemSeparatorComponent={() => <View style={styles.separator} />}
     />
   );
 }
@@ -23,5 +24,8 @@ export default function PokemonList(props) {
 const styles = StyleSheet.create({
   flatListContentContainer: {
     paddingHorizontal: 5,
+  },
+  separator: {
+    margin: 5,
   },
 });
