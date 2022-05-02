@@ -14,10 +14,7 @@ export default function PokemonList(props) {
   const loadMore = () => {
     loadPokemons();
   };
-  console.log(
-    "🚀 ~ file: PokemonList.js ~ line 6 ~ PokemonList ~ props",
-    props
-  );
+
   return (
     <FlatList
       data={pokemons}
