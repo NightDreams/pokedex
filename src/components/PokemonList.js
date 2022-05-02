@@ -29,7 +29,7 @@ export default function PokemonList(props) {
       ItemSeparatorComponent={() => <View style={styles.separator} />}
       onEndReached={isNext && loadMore}
       onEndReachedThreshold={0.1}
-      listFooterComponent={
+      ListFooterComponent={
         isNext && (
           <ActivityIndicator
             size="large"
