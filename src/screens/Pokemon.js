@@ -6,6 +6,8 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import Header from "../components/Pokemon/Header";
 import Type from "../components/Pokemon/Types";
 import Stats from "../components/Pokemon/Stats";
+import Favorite from "../components/Pokemon/Favorite";
+import useAuth from "../hooks/useAuth";
 
 export default function Pokemon(props) {
   const {
@@ -14,10 +16,11 @@ export default function Pokemon(props) {
   } = props;
 
   const [pokemon, setPokemon] = useState(null);
+  const { auth } = useAuth();
 
   useEffect(() => {
     navigation.setOptions({
-      headerRight: () => null,
+      headerRight: () => auth && <Favorite id={pokemon?.id} />,
       headerLeft: () => (
         <FontAwesome5
           name="arrow-left"
@@ -28,7 +31,7 @@ export default function Pokemon(props) {
         />
       ),
     });
-  }, [navigation, params]);
+  }, [navigation, params, pokemon]);
 
   useEffect(() => {
     (async () => {
