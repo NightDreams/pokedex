@@ -16,7 +16,11 @@ export default function PokedexNavigation() {
         options={{ title: "", headerTransparent: true }}
         // options={{ title: "", headerShown: false }}
       />
-      <Stack.Screen name="Pokemon" component={Pokemon} />
+      <Stack.Screen
+        name="Pokemon"
+        component={Pokemon}
+        options={{ title: "", headerTransparent: true }}
+      />
     </Stack.Navigator>
   );
 }
