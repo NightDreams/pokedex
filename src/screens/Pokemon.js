@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { ScrollView } from "react-native";
 import { getPokemonDetailsApi } from "../api/pokemon";
+import { FontAwesome5 } from "@expo/vector-icons";
+
 import Header from "../components/Pokemon/Header";
 import Type from "../components/Pokemon/Types";
 import Stats from "../components/Pokemon/Stats";
@@ -12,6 +14,22 @@ export default function Pokemon(props) {
   } = props;
 
   const [pokemon, setPokemon] = useState(null);
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => null,
+      headerLeft: () => (
+        <FontAwesome5
+          name="arrow-left"
+          size={20}
+          style={{ marginLeft: 20 }}
+          color="#fff"
+          onPress={navigation.goBack}
+        />
+      ),
+    });
+  }, [navigation, params]);
+
   useEffect(() => {
     (async () => {
       try {
