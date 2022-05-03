@@ -3,6 +3,7 @@ import { ScrollView } from "react-native";
 import { getPokemonDetailsApi } from "../api/pokemon";
 import Header from "../components/Pokemon/Header";
 import Type from "../components/Pokemon/Types";
+import Stats from "../components/Pokemon/Stats";
 
 export default function Pokemon(props) {
   const {
@@ -33,6 +34,7 @@ export default function Pokemon(props) {
         types={pokemon.types[0].type.name}
       />
       <Type types={pokemon.types}></Type>
+      <Stats stats={pokemon.stats}></Stats>
     </ScrollView>
   );
 }
